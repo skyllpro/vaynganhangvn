@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Dù muốn đẩy nhanh tiến độ hay hoàn thành sớm các dự định trong đời, bạn đã có lựa chọn đúng cùng Shinhan Finance.">
+  <meta name="description"
+    content="Dù muốn đẩy nhanh tiến độ hay hoàn thành sớm các dự định trong đời, bạn đã có lựa chọn đúng cùng Shinhan Finance.">
   <meta name="author" content="phuoctran.info">
   <title>Shinhan Finance - Vay Tiền Nhanh Thủ Tục Đơn Giản</title>
   <link rel="icon" href="assets/images/favicon-32x32.png" sizes="32x32" />
@@ -97,24 +98,26 @@
           <div class="row justify-content-md-center">
             <div class="col-md-8">
               <h3 class="text-center text-white">ĐĂNG KÝ VAY - TƯ VẤN MIỄN PHÍ</h3>
-              <form>
+              <form name="sentMessage" id="Form" method="POST">
                 <div class="mb-3">
-                  <input type="text" class="form-control" id="name" placeholder="Họ và tên*" required>
+                  <input type="text" class="form-control" name="Họ và tên*" id="name" placeholder="Họ và tên*" placeholder="Họ và tên*" required>
                 </div>
                 <div class="mb-3">
-                  <input type="number" class="form-control" id="phone" placeholder="Số điện thoại*" required>
+                  <input type="text" class="form-control" name="Số điện thoại*" id="phone" placeholder="Số điện thoại*" required>
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" id="cccd" placeholder="CMND hoặc CCCD">
+                  <input type="text" class="form-control" name="CCCD" id="cccd" placeholder="CMND hoặc CCCD">
                 </div>
                 <div class="mb-3">
-                  <input type="number" class="form-control" id="thunhap" placeholder="Thu nhập hàng tháng">
+                  <input type="text" class="form-control" name="Thu nhập" id="thunhap" placeholder="Thu nhập hàng tháng"
+                    onkeyup="convertToMoney(this)">
                 </div>
                 <div class="mb-3">
-                  <input type="number" class="form-control" id="tienvay" placeholder="Số tiền bạn muốn vay?">
+                  <input type="text" class="form-control" name="Số tiền vay" id="tienvay" placeholder="Số tiền bạn muốn vay?"
+                    onkeyup="convertToMoney(this)">
                 </div>
                 <div class="mb-3">
-                  <select name="mucdich" class="form-select">
+                  <select id="mucdich" class="form-select" name="Mục đích vay?">
                     <option selected>Mục đích vay?</option>
                     <option value="Tôi muốn sửa nhà">Tôi muốn sửa nhà</option>
                     <option value="Tôi muốn vay tiêu dùng">Tôi muốn vay tiêu dùng</option>
@@ -123,13 +126,18 @@
                   </select>
                 </div>
                 <div class="mb-3">
-                  <select name="hinhthuc" class="form-select">
+                  <select id="hinhthuc" class="form-select" name="Hình thức vay?">
                     <option selected>Hình thức vay?</option>
                     <option value="Vay theo lương chuyển khoản">Vay theo lương chuyển khoản</option>
                     <option value="Vay theo lương tiền mặt">Vay theo lương tiền mặt</option>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-danger btn-lg">ĐĂNG KÝ NGAY</button>
+                <input id="send" class="btn btn-danger btn-lg" type="button" value="ĐĂNG KÝ NGAY"
+                  onclick="Send('Form')" />
+                <div id="spinnerForm" class="spinner-border text-info d-none" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div id="alertForm"></div>
               </form>
             </div>
           </div>
@@ -229,24 +237,26 @@
               Bộ phận CSKH của Shinhan sẽ liên hệ với Anh/Chị để xác nhận thông tin,
               và hướng dẫn Anh/Chị làm thủ tục vay vốn ngay lập tức</p>
             <h4 class="mb-3 text-white">TƯ VẤN MIỄN PHÍ</h4>
-            <form>
+            <form name="sentMessage" id="Form1" method="POST">
               <div class="mb-3">
-                <input type="text" class="form-control" id="name" placeholder="Họ và tên*" required>
+                <input type="text" class="form-control" name="Họ và tên*" id="name" placeholder="Họ và tên*" placeholder="Họ và tên*" required>
               </div>
               <div class="mb-3">
-                <input type="number" class="form-control" id="phone" placeholder="Số điện thoại*" required>
+                <input type="text" class="form-control" name="Số điện thoại*" id="phone" placeholder="Số điện thoại*" required>
               </div>
               <div class="mb-3">
-                <input type="text" class="form-control" id="cccd" placeholder="CMND hoặc CCCD">
+                <input type="text" class="form-control" name="CCCD" id="cccd" placeholder="CMND hoặc CCCD">
               </div>
               <div class="mb-3">
-                <input type="number" class="form-control" id="thunhap" placeholder="Thu nhập hàng tháng">
+                <input type="text" class="form-control" name="Thu nhập" id="thunhap" placeholder="Thu nhập hàng tháng"
+                  onkeyup="convertToMoney(this)">
               </div>
               <div class="mb-3">
-                <input type="number" class="form-control" id="tienvay" placeholder="Số tiền bạn muốn vay?">
+                <input type="text" class="form-control" name="Số tiền vay" id="tienvay" placeholder="Số tiền bạn muốn vay?"
+                  onkeyup="convertToMoney(this)">
               </div>
               <div class="mb-3">
-                <select name="mucdich" class="form-select">
+                <select id="mucdich" class="form-select" name="Mục đích vay?">
                   <option selected>Mục đích vay?</option>
                   <option value="Tôi muốn sửa nhà">Tôi muốn sửa nhà</option>
                   <option value="Tôi muốn vay tiêu dùng">Tôi muốn vay tiêu dùng</option>
@@ -255,13 +265,19 @@
                 </select>
               </div>
               <div class="mb-3">
-                <select name="hinhthuc" class="form-select">
+                <select id="hinhthuc" class="form-select" name="Hình thức vay?">
                   <option selected>Hình thức vay?</option>
                   <option value="Vay theo lương chuyển khoản">Vay theo lương chuyển khoản</option>
                   <option value="Vay theo lương tiền mặt">Vay theo lương tiền mặt</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-danger btn-lg">ĐĂNG KÝ NGAY</button>
+              <!-- <button id="send" type="submit" class="btn btn-danger btn-lg">ĐĂNG KÝ NGAY</button> -->
+              <input id="send" class="btn btn-danger btn-lg" type="button" value="ĐĂNG KÝ NGAY"
+                onclick="Send('Form1')" />
+              <div id="spinnerForm1" class="spinner-border text-info d-none" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <div id="alertForm1"></div>
             </form>
           </div>
         </div>
@@ -359,6 +375,42 @@
     </div>
   </footer>
   <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function Send(x) {
+      var f = document.getElementById(x);
+      var send = f.send
+      var spinner = document.getElementById("spinner"+f.id)
+      var alert = document.getElementById("alert"+f.id)
+      
+      spinner.classList.remove("d-none")
+      send.classList.add("d-none")
+      var txt = "";
+      var i;
+      for (i = 0; i < f.length - 1; i++) {
+        txt = txt + f.elements[i].name + ": " + f.elements[i].value + "<br>";
+      }
+      console.log(txt)
+
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          spinner.classList.add("d-none")
+          send.classList.remove("d-none")
+          alert.innerHTML =
+            '<div class="alert alert-warning d-flex align-items-center" role="alert">' + this.responseText + '</div>'
+
+        }
+      };
+      xhttp.open("POST", "https://phuoctran.info/sendmail/", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send('email=thutrang42489@gmail.com&title=' + f.elements[0].value + '-' + f.elements[1].value +'&message=' + txt);
+    }
+
+    function convertToMoney(sk) {
+      sk.value = sk.value.toString().replace(/[^\d]/g, '').replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+    }
+  </script>
 </body>
 
 </html>
