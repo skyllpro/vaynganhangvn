@@ -9,6 +9,7 @@ body {
 }
 .fixed-top{
   background-color: #00aae7;
+  background-color: #402c69;
 }
 ul li{
   margin-bottom: 7px
@@ -17,7 +18,7 @@ ul li{
   color: #fff
 }
 .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link{
-  color: #333
+  color: #fe9901
 }
 .img-review{
   width: auto;
@@ -50,7 +51,7 @@ main section{
   font-size: 26px;
 }
 footer{
-  background-color: #051442;
+  background-color: #3e2b69;
   padding: 30px 15px
 }
 .copyright{
